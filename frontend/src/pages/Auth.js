@@ -62,11 +62,11 @@ class AuthPage extends Component {
             if (res.status !== 200 && res.status !== 201)
                 throw new Error("Failed Login or Signup!");
             const resData = await res.json();
-            if (resData.data.login.token) {
-                // console.log("submit signup data", resData);
+            try {
                 const { userId, token, tokenExpiration } = resData.data.login;
                 this.context.login(userId, token, tokenExpiration);
-            } else {
+            } catch (error) {
+                // return this.submitHandler(event);
                 console.log("You are successfully SIGN UPed. Please LogIn.");
             }
         }
