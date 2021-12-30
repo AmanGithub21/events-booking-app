@@ -42,10 +42,6 @@ app.use(
 );
 app.use(express.static("frontend/build"));
 
-app.get("/", (req, res) => {
-    res.write("<h1>Aman Porwal</h1>");
-});
-
 app.listen(port, (req, res) => {
     console.log("Server running on PORT 3000");
 });
