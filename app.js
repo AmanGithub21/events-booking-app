@@ -6,7 +6,7 @@ const { graphqlHTTP } = require("express-graphql");
 const graphqlSchema = require("./graphQL/schema/index");
 const graphqlResolvers = require("./graphQL/resolvers/index");
 const isAuth = require("./middleware/isAuth");
-const PORT = process.evn.PORT || 8000;
+const PORT = process.env.PORT || 8000;
 
 app.use(bodyParser.json());
 app.use((req, res, next) => {
