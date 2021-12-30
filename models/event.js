@@ -1,16 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const dbUrl = process.env.MONGODBURL || "mongodb://localhost/eventDB";
-
-mongoose
-    .connect(dbUrl, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    })
-    .then(() => console.log("DB connected."))
-    .catch((err) => console.log("DB not connected.", err));
-
 const eventSchema = new Schema({
     title: {
         type: String,
