@@ -48,13 +48,16 @@ class AuthPage extends Component {
             };
         }
 
-        const res = await fetch("http://localhost:8000/graphql", {
-            method: "POST",
-            body: JSON.stringify(requestBody),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
+        const res = await fetch(
+            "https://eventsbookingapp.herokuapp.com/graphql",
+            {
+                method: "POST",
+                body: JSON.stringify(requestBody),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }
+        );
         if (res) {
             if (res.status !== 200 && res.status !== 201)
                 throw new Error("Failed Login or Signup!");

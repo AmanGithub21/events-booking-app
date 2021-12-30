@@ -33,14 +33,17 @@ class BookingsPage extends Component {
             `,
         };
         const token = this.context.token;
-        const res = await fetch("http://localhost:8000/graphql", {
-            method: "POST",
-            body: JSON.stringify(requestBody),
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer " + token,
-            },
-        });
+        const res = await fetch(
+            "https://eventsbookingapp.herokuapp.com/graphql",
+            {
+                method: "POST",
+                body: JSON.stringify(requestBody),
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + token,
+                },
+            }
+        );
         if (res) {
             if (res.status !== 200 && res.status !== 201)
                 throw new Error("Failed!");
@@ -63,14 +66,17 @@ class BookingsPage extends Component {
                 }
             `,
         };
-        const res = await fetch("http://localhost:8000/graphql", {
-            method: "POST",
-            body: JSON.stringify(requestBody),
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer " + this.context.token,
-            },
-        });
+        const res = await fetch(
+            "https://eventsbookingapp.herokuapp.com/graphql",
+            {
+                method: "POST",
+                body: JSON.stringify(requestBody),
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + this.context.token,
+                },
+            }
+        );
         if (res.status !== 200 && res.status !== 201) {
             this.setState({ isLoading: false });
             throw new Error("Failed in deleting Booking");
